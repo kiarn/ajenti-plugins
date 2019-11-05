@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: webui\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 20:36+0200\n"
+"POT-Creation-Date: 2019-11-05 14:14+0100\n"
 "PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -16,33 +16,29 @@ msgstr ""
 "X-Crowdin-Language: hu\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: extra_linbo_sync/resources/partial/index.html:4
-msgid "Last synchronization"
+#: check_certificates/resources/partial/index.html:15
+msgid "Add url"
 msgstr ""
 
-#: extra_linbo_sync/resources/partial/index.html:19
-msgid "Synchronize"
+#: check_certificates/main.py:17
+#: check_certificates/resources/js/controllers/index.controller.coffee:2
+msgid "Check certificates"
 msgstr ""
 
-#: extra_linbo_sync/main.py:17
-#: extra_linbo_sync/resources/js/controllers/index.controller.coffee:2
-msgid "Linbo synchronization"
+#: check_certificates/resources/js/controllers/index.controller.coffee:15
+msgid "New url"
 msgstr ""
 
-#: extra_linbo_sync/main.py:31
-msgid "List of last sync workstations"
+#: check_certificates/resources/js/controllers/index.controller.coffee:26
+msgid "Remove the url "
 msgstr ""
 
-#: extra_linbo_sync/main.py:36
-msgid "Test if workstation is up"
+#: check_certificates/resources/js/controllers/index.controller.coffee:27
+msgid "Remove"
 msgstr ""
 
-#: extra_linbo_sync/main.py:41
-msgid "Synchronize first OS from workstation"
-msgstr ""
-
-#: extra_linbo_sync/resources/js/controllers/index.controller.coffee:14
-msgid "Online test"
+#: check_certificates/resources/js/controllers/index.controller.coffee:28
+msgid "Cancel"
 msgstr ""
 
 #~ msgid "Date & time"
