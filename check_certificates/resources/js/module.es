@@ -1,4 +1,3 @@
-angular.module('extra_certificates', [
+angular.module('check_certificates', [
     'core',
-    'lm.common',
 ]);

@@ -1,8 +1,6 @@
 <br/>
 
 <div class="form-group">
-    <label translate>Check all certificates</label>
-
     <table class="table">
         <tr ng:repeat="h in status">
             <th class="{{h.status}}">{{h.url}}</th>
@@ -14,7 +12,5 @@
             </td>
         </tr>
     </table>
-
     <button class="btn btn-default" ng:click="add()" translate>Add url</button>
-
 </div>

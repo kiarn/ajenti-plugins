@@ -12,23 +12,11 @@ class ItemProvider(SidebarItemProvider):
     def provide(self):
         return [
             {
-                'attach': 'category:devicemanagement',
-                'id': 'sync',
+                'attach': 'category:tools',
+                'id': 'check_cert',
                 'name': _('Check certificates'),
                 'icon': 'fas fa-certificate',
-                'url': '/view/lm/certificates',
+                'url': '/view/check_cert/certificates',
                 'children': [],
             }
-        ]
-
-
-@component(PermissionProvider)
-class Permissions(PermissionProvider):
-    def provide(self):
-        return [
-            {
-                'id': 'lm:settings',
-                'name': _('Check certificates'),
-                'default': False,
-            },
         ]

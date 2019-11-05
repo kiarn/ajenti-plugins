@@ -1,4 +1,4 @@
-angular.module('extra_certificates').controller 'CertIndexController', ($scope, $http, $interval, $timeout, notify, pageTitle, messagebox, gettext, config) ->
+angular.module('check_certificates').controller 'CertIndexController', ($scope, $http, $interval, $timeout, notify, pageTitle, messagebox, gettext, config) ->
     pageTitle.set(gettext('Check certificates'))
 
     $scope.status = []
@@ -8,14 +8,14 @@ angular.module('extra_certificates').controller 'CertIndexController', ($scope, 
         $scope.userConfig.certificates = $scope.userConfig.certificates
         console.log($scope.userConfig.certificates)
         for url in $scope.userConfig.certificates.domain
-            $http.post('/api/lm/check_cert', {url:url}).then (resp) ->
+            $http.post('/api/check_cert/test', {url:url}).then (resp) ->
                 $scope.status.push(resp.data)
 
     $scope.add = () ->
         messagebox.prompt(gettext('New url')).then (msg) -> 
             if (!msg.value)
                 return
-            $http.post('/api/lm/check_cert', {url:msg.value}).then (resp) ->
+            $http.post('/api/check_cert/test', {url:msg.value}).then (resp) ->
                     $scope.status.push(resp.data)
             $scope.userConfig.certificates.domain.push(msg.value)
             $scope.save()

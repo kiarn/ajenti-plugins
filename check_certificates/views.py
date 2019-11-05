@@ -1,13 +1,4 @@
-import logging
-import subprocess
-import time
-from datetime import datetime
-import ssl
-import socket
-from OpenSSL import crypto
 from jadi import component
-
-import sys
 
 from aj.api.http import url, HttpPlugin
 from aj.auth import authorize
@@ -19,7 +10,7 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
-    @url(r'/api/lm/check_cert')
+    @url(r'/api/check_cert/test')
     @endpoint(api=True)
     def handle_api_check_cert(self, http_context):
         if http_context.method == 'POST':

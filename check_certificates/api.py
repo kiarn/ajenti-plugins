@@ -43,13 +43,13 @@ def checkOnDom(hostname, port='443'):
         try:
             cert = CertLimitSSL(hostname, port)
             limit = datetime.strptime(cert['notAfter'], "%b %d %H:%M:%S %Y GMT")
-        except ConnectionRefusedError:
+        except: #ConnectionRefusedError: ## Only for PY3
             limit = -1
 
     if limit == -1:
         status = 'danger'
         limit = 'No reponse from host !'
-    if (limit-now).days <= 7:
+    elif (limit-now).days <= 7:
         status = 'danger'
     elif (limit-now).days <= 14:
         status = 'warning'
