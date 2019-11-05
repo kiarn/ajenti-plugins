@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-07 20:36+0200\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extra_linbo_sync/resources/partial/index.html:4
+msgid "Last synchronization"
+msgstr ""
+
+#: extra_linbo_sync/resources/partial/index.html:19
+msgid "Synchronize"
+msgstr ""
+
+#: extra_linbo_sync/main.py:17
+#: extra_linbo_sync/resources/js/controllers/index.controller.coffee:2
+msgid "Linbo synchronization"
+msgstr ""
+
+#: extra_linbo_sync/main.py:31
+msgid "List of last sync workstations"
+msgstr ""
+
+#: extra_linbo_sync/main.py:36
+msgid "Test if workstation is up"
+msgstr ""
+
+#: extra_linbo_sync/main.py:41
+msgid "Synchronize first OS from workstation"
+msgstr ""
+
+#: extra_linbo_sync/resources/js/controllers/index.controller.coffee:14
+msgid "Online test"
+msgstr ""

@@ -1,0 +1,16 @@
+name: extra_certificates
+author: Arnaud Kientz
+email: arnaud@unpeud.info
+url: http://www.unpeud.info
+version: '0.35'
+title: 'Check certificates'
+icon: certificate
+dependencies:
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: lmn_common }
+resources:
+    - resources/js/module.es
+    - resources/js/routing.es
+    - resources/js/controllers/index.controller.coffee
+    - resources/partial/index.html
+    - ng:extra_certificates
