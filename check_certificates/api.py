@@ -29,10 +29,17 @@ def CertLimitSTARTTLS(hostname):
 def checkOnDom(hostname, port='443'):
 
     port = int(port)
-    cert = False
-    notAfter = False
-    notBefore = False
-    restTime = 0
+    certDetails = {
+        'status': 'danger',
+        'hostname': hostname,
+        'port':port,
+        'url':hostname+":"+str(port),
+        'notAfter': None,
+        'restTime': '',
+        'issuer': None,
+        'subject': None,
+        'notBefore': None
+    }
     
     ## Locale EN to fix
     import locale
@@ -43,36 +50,28 @@ def checkOnDom(hostname, port='443'):
             cert = CertLimitSTARTTLS(hostname)
         else:
             cert = CertLimitSSL(hostname, port)
-        notAfter = datetime.strptime(cert.get_notAfter().decode(),"%Y%m%d%H%M%SZ")
-        notBefore = datetime.strptime(cert.get_notBefore().decode(),"%Y%m%d%H%M%SZ")
+        remainingDays = (datetime.strptime(cert.get_notAfter().decode(),"%Y%m%d%H%M%SZ")-now).days
+        certDetails['notAfter'] = str(datetime.strptime(cert.get_notAfter().decode(),"%Y%m%d%H%M%SZ"))
+        certDetails['notBefore'] = str(datetime.strptime(cert.get_notBefore().decode(),"%Y%m%d%H%M%SZ"))
+        certDetails['issuer'] = dict(cert.get_issuer().get_components())
+        certDetails['subject'] = dict(cert.get_subject().get_components())
+
     except: #ConnectionRefusedError: ## Only for PY3
-        notAfter = -1
+        certDetails['notAfter'] = 'No reponse from host !'
+        return certDetails
 
-    if notAfter == -1:
-        status = 'danger'
-        notAfter = 'No reponse from host !'
-    elif (notAfter-now).days <= 7:
-        status = 'danger'
-        restTime = '< 7'
-    elif (notAfter-now).days <= 30:
-        status = 'warning'
-        restTime = '< 14'
-    elif (notAfter-now).days <= 60:
-        status = 'info'
-        restTime = '< 28'
+    if remainingDays <= 7:
+        certDetails['restTime'] = '< 7'
+    elif remainingDays <= 14:
+        certDetails['status'] = 'warning'
+        certDetails['restTime'] = '< 14'
+    elif remainingDays <= 28:
+        certDetails['status'] = 'info'
+        certDetails['restTime'] = '< 28'
     else:
-        status = 'success'
-    return {
-        'status': status,
-        'hostname': hostname,
-        'port':port,
-        'url':hostname+":"+str(port),
-        'notAfter': str(notAfter),
-        'restTime': restTime,
-        #'certDict': cert if cert else None,
-        'notBefore': str(notBefore)
-        }
+        certDetails['status'] = 'success'
 
+    return certDetails
 
 ## TODO: Parallel version for PY3
 # def checkCertDom(sub):

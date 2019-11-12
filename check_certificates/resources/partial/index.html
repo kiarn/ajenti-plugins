@@ -5,7 +5,10 @@
     <div ng:repeat="h in status" class="alert alert-{{h.status}}">
         <table style="width:100%;">
             <tr>
-                <th style="width:25%;">{{h.url}}</th>
+                <th style="width:25%;">
+                    {{h.url}}<br />
+                    {{h.issuer.CN}}
+                </th>
                 <td style="width:20%;">
                     <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Certificate start : </span><br />
                     <span ng:show="h.notAfter.slice(0,2) != 'No'" translate>Certificate end : </span>
