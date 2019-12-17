@@ -1,0 +1,39 @@
+<br/>
+
+<div class="form-group">
+    
+    <div>
+        <table style="width:100%;" class="table">
+            <tr>
+                <th translate>User</th>
+                <th translate>IP</th>
+                <th translate>Logged in</th>
+                <th translate>Timeout</th>
+            </tr>
+            <tr ng:repeat="session in sessions">
+                <td style="width:20%;">
+                    {{session.identity}}
+                </td>
+                <td style="width:20%;">
+                    {{session.client_info.address}}
+                </td>
+                <td style="width:20%;">
+                    {{session.timestamp*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
+                </td>
+<!--
+              TODO : get max session duration from config file  
+-->
+                <td style="width:20%;">
+                    {{session.timestamp*1000 + 3600*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
+                </td>
+<!--
+                <td width="1">
+                    <button class="btn btn-default" ng:click="remove(h)" title="Remove">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </td>
+-->
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+{"": "", "Online test": "", "Linbo synchronization": "", "Last synchronization": "", "Test if workstation is up": "", "List of last sync workstations": "", "Synchronize": "", "Synchronize first OS from workstation": ""}
