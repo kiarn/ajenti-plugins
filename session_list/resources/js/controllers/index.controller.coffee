@@ -5,4 +5,4 @@ angular.module('session_list').controller 'SessionListIndexController', ($scope,
         $scope.sessions = resp.data
         for session in $scope.sessions
             session.date = new Date(session.timestamp)
-        console.log(resp.data)
+        $scope.session_max_time = config.data.session_max_time

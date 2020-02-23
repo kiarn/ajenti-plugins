@@ -20,11 +20,9 @@
                 <td style="width:20%;">
                     {{session.timestamp*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
                 </td>
-<!--
-              TODO : get max session duration from config file  
--->
+
                 <td style="width:20%;">
-                    {{session.timestamp*1000 + 3600*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
+                    {{session.timestamp*1000 + session_max_time*1000 | date: 'dd MMMM yyyy HH:mm:ss'}}
                 </td>
 <!--
                 <td width="1">
