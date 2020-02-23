@@ -5,6 +5,12 @@
     <div ng:repeat="h in status" class="alert alert-{{h.status}}">
         <table style="width:100%;">
             <tr>
+                <td>
+                    <i class="fas fa-check" ng-if="h.status == 'success'" style="font-size: 20px;"></i>
+                    <i class="fas fa-exclamation-triangle" ng-if="h.status == 'warning'" style="font-size: 20px;"></i>
+                    <i class="fas fa-info-circle" ng-if="h.status == 'info'" style="font-size: 20px;"></i>
+                    <i class="fas fa-skull-crossbones" ng-if="h.status == 'danger'" style="font-size: 20px;"></i>
+                </td>
                 <th style="width:25%;">
                     {{h.url}}<br />
                     {{h.issuer.CN}}
