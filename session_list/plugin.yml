@@ -2,7 +2,7 @@ name: session_list
 author: Arnaud Kientz
 email: arnaud@unpeud.info
 url: https://github.com/kiarn/ajenti-plugins
-version: '0.2'
+version: '0.1'
 title: 'Session list'
 icon: network-wired
 dependencies:
