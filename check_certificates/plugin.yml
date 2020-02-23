@@ -2,7 +2,7 @@ name: check_certificates
 author: Arnaud Kientz
 email: arnaud@unpeud.info
 url: https://github.com/kiarn/ajenti-plugins
-version: '0.2'
+version: '0.3'
 title: 'Check certificates'
 icon: certificate
 dependencies:
