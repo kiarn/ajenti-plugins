@@ -3,8 +3,6 @@ import socket
 import smtplib
 from datetime import datetime
 from OpenSSL import crypto
-# Parallel version for PY3
-#from concurrent import futures
 
 now = datetime.now()
 
@@ -56,7 +54,7 @@ def checkOnDom(hostname, port='443'):
         certDetails['issuer'] = dict(cert.get_issuer().get_components())
         certDetails['subject'] = dict(cert.get_subject().get_components())
 
-    except: #ConnectionRefusedError: ## Only for PY3
+    except ConnectionRefusedError as e:
         certDetails['notAfter'] = 'No reponse from host !'
         return certDetails
 
@@ -72,11 +70,3 @@ def checkOnDom(hostname, port='443'):
         certDetails['status'] = 'success'
 
     return certDetails
-
-## TODO: Parallel version for PY3
-# def checkCertDom(sub):
-    # tld = sub[0]
-    # result = []
-    # with futures.ThreadPoolExecutor(20) as executor:
-        # res = executor.map(lambda arg:checkOnDom(arg,tld), sub[1:])
-        # return len(list(res))
